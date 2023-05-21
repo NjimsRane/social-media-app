@@ -1,0 +1,14 @@
+@use '../../sass/util/' as*;
+
+.formInput {
+
+    input {
+        width: 100%;
+        border-bottom: rem(1) solid var(--light-grey);
+        padding: rem(5);
+
+        &:focus {
+            border-bottom-color: var(--limegreen);
+        }
+    }
+}

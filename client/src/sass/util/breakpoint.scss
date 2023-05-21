@@ -1,0 +1,48 @@
+// 700px , 900px , 1200px
+$breakpoints-up: (
+    'medium':'43.75em',
+    'large':'56.25em',
+    'xlarge':'75em'
+);
+// 659px , 899px , 1219px
+$breakpoints-down: (
+    'small':'41.1875em',
+    'medium':'56.19275em',
+    'large':'76.1875em'
+);
+
+@mixin breakpoint($size) {
+    @media (min-width: map-get($breakpoints-up, $size)) {
+        @content;
+    }
+}
+
+@mixin breakpoint-down($size) {
+    @media (max-width: map-get($breakpoints-down, $size)) {
+        @content;
+    }
+}
+
+/*--================-------------flexbox=================*/
+
+@mixin flexBox1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin flexBox2 {
+    display: flex;
+    flex-direction: column;
+}
+
+@mixin flexBox3 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@mixin flexBox4 {
+    display: flex;
+    align-items: center;
+}

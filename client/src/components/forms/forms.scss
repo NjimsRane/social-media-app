@@ -1,0 +1,113 @@
+@use '../../sass/util/' as *;
+
+.forms {
+    background-color: var(--form-bg);
+    min-height: 100vh;
+    @include flexBox1;
+    padding-inline: rem(5);
+
+    .card {
+        @include flexBox2;
+        background-color: var(--white-color);
+        border-radius: rem(5);
+        max-width: rem(700);
+        overflow: hidden;
+
+
+        @include breakpoint(medium) {
+            flex-direction: row;
+            min-height: rem(400)
+        }
+
+
+        button {
+            text-transform: capitalize;
+            width: rem(90);
+            padding: rem(10) rem(20);
+            border-radius: rem(3);
+            font-weight: bold;
+            margin-top: rem(20);
+        }
+
+        .left {
+            flex: 1;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            padding: rem(25);
+            color: var(--white-color);
+            @include flexBox2;
+
+            h1 {
+                font-size: rem(40);
+                text-transform: capitalize;
+
+                @include breakpoint(medium) {
+                    font-size: rem(60);
+                }
+            }
+
+            p {
+                font-size: rem(14);
+                line-height: 1.5;
+            }
+
+            span {
+                font-size: rem(12);
+                color: var(--light-grey);
+            }
+
+            button {
+                background-color: var(--white-color);
+                color: var(--form-btn);
+            }
+        }
+
+        .right {
+            flex: 1;
+            padding: rem(25);
+            @include flexBox2;
+            justify-content: center;
+            gap: rem(5);
+
+            h2 {
+                text-transform: capitalize;
+                color: #555;
+            }
+
+            form {
+                @include flexBox2;
+                gap: rem(12);
+
+                button {
+                    background-color: var(--form-btn);
+                    color: var(--white-color);
+                }
+            }
+        }
+    }
+}
+
+.login {
+    .left {
+        background: linear-gradient(rgba(39, 11, 96, 0.7),
+                rgba(39, 11, 96, 0.7)),
+            url('../../assets/images/lady1.jpg');
+    }
+}
+
+.register {
+    .card {
+        flex-direction: column-reverse;
+
+        .left {
+            background: linear-gradient(rgba(39, 11, 96, 0.7),
+                    rgba(39, 11, 96, 0.7)),
+                url('../../assets/images/ubuntu.jpg');
+        }
+
+        @include breakpoint(medium) {
+            flex-direction: row-reverse;
+        }
+    }
+}

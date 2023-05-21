@@ -1,0 +1,77 @@
+@use '../../sass//util' as *;
+
+.leftBar {
+    flex: 2;
+    position: sticky;
+    // 50pixels navbar height and 10/2 px padding(top and bottom each) block 
+    top: rem(60);
+    height: calc(100vh - rem(60));
+    overflow: scroll;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    .container {
+        padding: rem(10);
+        @include flexBox2;
+        gap: rem(10);
+
+        .menu {
+            @include flexBox2;
+            gap: rem(10);
+
+            .user {
+                @include flexBox4;
+                gap: rem(10);
+
+                img {
+                    width: rem(20);
+                    height: rem(20);
+                    border-radius: 50%;
+                    object-fit: cover;
+                }
+
+                span {
+                    font-weight: 400;
+                    font-size: rem(12);
+                    color: #333;
+                }
+            }
+
+            &>span {
+                text-transform: capitalize;
+                color: #333;
+                font-size: rem(14);
+            }
+
+            .items {
+                @include flexBox2;
+                gap: rem(10);
+            }
+        }
+
+        hr {
+            margin-block: rem(5);
+            height: rem(2);
+            border: none;
+            background-color: black;
+        }
+    }
+}
+
+.leftIcons {
+    @include flexBox4;
+    gap: rem(10);
+
+    img {
+        width: rem(20);
+        height: rem(20);
+    }
+
+    span {
+        font-size: rem(12);
+        text-transform: capitalize;
+        color: #333;
+    }
+}
