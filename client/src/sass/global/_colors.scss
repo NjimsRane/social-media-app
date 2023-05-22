@@ -2,10 +2,27 @@
     --limegreen: hsl(163, 72%, 41%);
     --brightred: hsl(356, 69%, 56%);
     --blue-facebook: hsl(208, 92%, 53%);
-    --twitter: hsl(203, 89%, 53%);
-
     --form-bg: hsl(270, 86%, 70%);
     --form-btn: hsl(270, 100%, 40%);
-    --light-grey: hsl(0, 0%, 83%);
+    --light-grey: #d4d4d4;
     --white-color: hsl(0, 0%, 100%);
+
+
+    // light mode
+    --logo-blue: hsl(203, 78%, 30%);
+    --bg-white: #fff;
+    --bg-soft-white: #f6f3f3;
+    --text-soft-white: #555;
+    --light-gray-white: #9f9f9f;
+    --text-black: #000;
+
+
+    // dark mode
+    --logo-white: #fff;
+    --bg-dark: #222;
+    --text-soft-dark: #d3d3d3;
+    --bg-soft-dark: #333;
+    --light-gray-dark: #444;
+    --text-white: #f5f5f5;
+
 }

@@ -7,20 +7,26 @@ import {
 
 import { Home, Login, Profile, Register } from './pages';
 import { LeftBar, Navbar, RightBar } from './components';
-
+import './style.scss';
+import { useContext } from 'react';
+import { DarkModeContext } from './context/DarkModeContext';
 
 
 
 
 const App = () => {
-  // fake fonction for login waiting for backend server
 
+
+  const { darkMode } = useContext(DarkModeContext);
+
+
+  // fake fonction for login waiting for backend server
   // false because , the user had not logged in yet
   const currentUser = true;
 
   const Layout = () => {
     return (
-      <div>
+      <div className={`theme-${darkMode ? "dark" : "light"}`}>
         <Navbar />
         <div style={{ display: 'flex' }}>
           <LeftBar />

@@ -71,7 +71,7 @@ const Register = () => {
                 </div>
                 <div className="right">
                     <h2>register</h2>
-                    <form action="#">
+                    <form action="#" name='registerForm'>
                         {inputs.map(input => (
                             <FormInput
                                 key={input.id}

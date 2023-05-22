@@ -1,0 +1,45 @@
+@use './sass/util/' as *;
+
+$themes: (
+    light:(textColor:var(--text-black),
+        bg:var(--bg-white),
+        logo:var(--logo-blue),
+        bgSoft:var(--bg-soft-white),
+        textColorSoft:var(--text-soft-white),
+        border:var(--light-gray-white),
+    ),
+    dark:(textColor:var(--text-white),
+        bg:var(--bg-dark),
+        logo:var(--logo-white),
+        bgSoft:var(--bg-soft-dark),
+        textColorSoft:var(--light-gray-white),
+        border:var(--light-gray-dark),
+    ),
+);
+
+// function to handle theme mode
+
+@mixin themify($themes) {
+
+    @each $theme,
+    $map in $themes {
+        .theme-#{$theme} & {
+            $theme-map: () !global;
+
+            @each $key,
+            $submap in $map {
+                $value: map-get(map-get($themes, $theme), "#{$key}"
+                );
+                $theme-map: map-merge($theme-map,
+                    ($key: $value )) !global
+            }
+
+            @content;
+            $theme-map: null !global;
+        }
+    }
+}
+
+@function themed($key) {
+    @return map-get($theme-map, $key)
+}

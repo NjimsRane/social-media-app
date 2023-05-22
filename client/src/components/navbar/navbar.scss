@@ -1,58 +1,64 @@
 @use '../../sass/util' as *;
+@import '../../style.scss';
 
 
 .navbar {
-    @include flexBox3;
-    padding: rem(10) rem(20);
-    height: rem(50);
-    background-color: var(--white-color);
-    border-bottom: rem(1) solid var(--light-grey);
-    position: sticky;
-    top: 0;
-    left: 0;
+    @include themify($themes) {
+        @include flexBox3;
+        padding: rem(10) rem(20);
+        height: rem(50);
+        background-color: themed('bg');
+        border-bottom: rem(1) solid themed('border');
+        color: themed('textColor');
+        position: sticky;
+        top: 0;
+        left: 0;
 
-    .left {
-        @include flexBox4;
-        gap: rem(10);
-
-        .logo {
-            color: var(--facebook);
-            font-weight: 700;
-            font-size: rem(20)
-        }
-
-        .search {
+        .left {
             @include flexBox4;
             gap: rem(10);
-            border: rem(1) solid var(--light-grey);
-            border-radius: rem(3);
-            padding: rem(3) rem(5);
 
-            input {
-                width: rem(500);
+            .logo {
+                color: themed('logo');
+                font-weight: 700;
+                font-size: rem(20)
+            }
+
+            .search {
+                @include flexBox4;
+                gap: rem(10);
+                border: rem(1) solid themed('border');
+                border-radius: rem(3);
+                padding: rem(3) rem(5);
+
+                input {
+                    width: rem(500);
+                    background-color: transparent;
+                    color: themed('textColor');
+                }
             }
         }
-    }
 
-    .right {
-        @include flexBox4;
-        gap: rem(10);
-
-        .user {
+        .right {
             @include flexBox4;
-            gap: rem(5);
+            gap: rem(10);
 
-            img {
-                width: rem(30);
-                height: rem(30);
-                border-radius: 50%;
-                object-fit: cover;
+            .user {
+                @include flexBox4;
+                gap: rem(5);
+
+                img {
+                    width: rem(30);
+                    height: rem(30);
+                    border-radius: 50%;
+                    object-fit: cover;
+                }
+
+                span {
+                    font-weight: 600;
+                }
             }
 
-            span {
-                font-weight: 600;
-            }
         }
-
     }
 }

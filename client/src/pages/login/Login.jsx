@@ -51,7 +51,7 @@ const Login = () => {
                 </div>
                 <div className="right">
                     <h2>login</h2>
-                    <form action="#">
+                    <form action="#" name='loginForm'>
                         {inputs.map(input => (
                             <FormInput
                                 key={input.id}

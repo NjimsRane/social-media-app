@@ -1,3 +1,139 @@
+@use '../../sass//util' as *;
+@import '../../style.scss';
+
 .rightBar {
-    flex: 3;
+    @include themify($themes) {
+        flex: 3;
+        position: sticky;
+        // 50pixels navbar height and 10/2 px padding(top and bottom each) block 
+        top: rem(50);
+        height: calc(100vh - rem(50));
+        overflow: scroll;
+
+        background-color: themed('bgSoft');
+        color: themed('textColor');
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        .container {
+            padding: rem(10);
+            @include flexBox2;
+            gap: rem(10);
+
+            .item {
+                @include flexBox2;
+                gap: rem(10);
+                -webkit-box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.09);
+                -moz-box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.09);
+                box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.09);
+                padding: rem(10);
+                border-radius: rem(3);
+                background-color: themed('bg');
+                color: themed('textColor');
+
+
+                &>span {
+                    font-size: rem(12);
+                    text-transform: capitalize;
+                    color: themed('textColorSoft');
+                }
+
+                .user {
+                    @include flexBox3;
+                    position: relative;
+
+
+                    .btns {
+                        @include flexBox4;
+                        gap: rem(5);
+
+                        button {
+                            color: var(--white-color);
+                            padding: rem(3) rem(5);
+                            border-radius: rem(3);
+
+                            &:first-child {
+                                background-color: var(--blue-facebook);
+                            }
+
+                            &:last-child {
+                                background-color: var(--brightred)
+                            }
+                        }
+                    }
+
+                    .circle {
+                        position: absolute;
+                        width: rem(8);
+                        height: rem(8);
+                        border-radius: 50%;
+                        background-color: var(--limegreen);
+                        top: 0;
+                        left: rem(18);
+                    }
+
+                }
+
+                .userInfo {
+                    @include flexBox3;
+                    margin-bottom: rem(10);
+
+
+                    & div {
+                        @include flexBox3;
+                        gap: rem(5);
+                    }
+
+                    .comment {
+                        color: themed('textColorSoft');
+                        font-size: rem(12);
+                    }
+
+                    .time {
+                        font-size: rem(12);
+                        color: themed('textColorSoft');
+                    }
+                }
+            }
+        }
+
+
+        .rightBarProfile {
+            @include flexBox4;
+            gap: rem(10);
+
+            img {
+                width: rem(30);
+                height: rem(30);
+                border-radius: 50%;
+                object-fit: cover;
+            }
+
+            span {
+                font-size: rem(12);
+                text-transform: capitalize;
+                color: themed('textColor');
+                font-weight: 600;
+            }
+        }
+
+        .rightBarActivities {
+            @include flexBox4;
+            gap: rem(5);
+
+            img {
+                width: rem(25);
+                height: rem(25);
+                border-radius: 50%;
+                object-fit: cover;
+            }
+
+            span {
+                font-size: rem(12);
+                text-transform: capitalize;
+            }
+        }
+    }
 }
