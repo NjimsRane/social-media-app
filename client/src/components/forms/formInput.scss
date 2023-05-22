@@ -1,6 +1,11 @@
 @use '../../sass/util/' as*;
 
 .formInput {
+    span {
+        font-size: rem(12);
+        color: var(--brightred);
+        display: none;
+    }
 
     input {
         width: 100%;
@@ -8,7 +13,21 @@
         padding: rem(5);
 
         &:focus {
-            border-bottom-color: var(--limegreen);
+            border-bottom-color: var(--blue-facebook);
         }
+
+        &:invalid[focused='true']~span {
+            display: block;
+        }
+
+        &:invalid[focused='true'] {
+            border-bottom-color: 1px solid var(--brightred);
+            color: var(--brightred);
+        }
+
+        // &:valid {
+        //     border: 1px solid var(--limegreen);
+        //     border-radius: rem(3);
+        // }
     }
 }
