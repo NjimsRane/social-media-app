@@ -1,0 +1,6 @@
+@use '../../sass//util' as *;
+
+.posts {
+    @include flexBox2;
+    gap: rem(25);
+}

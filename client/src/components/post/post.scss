@@ -1,0 +1,85 @@
+@use '../../sass//util' as *;
+@import '../../style.scss';
+
+.post {
+    @include themify($themes) {
+        -webkit-box-shadow: 0px 0px 25px -10px rgba(0, 0, 0, 0.38);
+        -moz-box-shadow: 0px 0px 25px -10px rgba(0, 0, 0, 0.38);
+        box-shadow: 0px 0px 25px -10px rgba(0, 0, 0, 0.38);
+        border-radius: rem(10);
+        background-color: themed('bg');
+        color: themed('textColor');
+        margin-top: rem(15);
+
+        .container {
+            padding: rem(10);
+
+            .user {
+                @include flexBox3;
+
+                .userInfo {
+                    @include flexBox4;
+                    gap: rem(10);
+
+                    img {
+                        width: rem(30);
+                        height: rem(30);
+                        border-radius: 50%;
+                        object-fit: cover;
+                    }
+
+                    .details {
+                        @include flexBox2;
+                        gap: rem(3);
+
+                        .userName {
+                            font-weight: 500;
+                            text-transform: capitalize;
+                            font-size: rem(12);
+                            color: themed('textColor');
+                        }
+
+                        .postTime {
+                            font-size: rem(12);
+                            color: themed('textColorSoft');
+                        }
+                    }
+                }
+            }
+
+            .content {
+                margin-block: rem(10);
+
+                .desc {
+                    font-size: rem(14);
+                    line-height: 1.5;
+                }
+
+                img {
+                    width: 100%;
+                    max-height: rem(350);
+                    object-fit: cover;
+                    margin-top: rem(10);
+                }
+            }
+
+            .info {
+                @include flexBox4;
+                gap: rem(20);
+
+                .items {
+                    @include flexBox4;
+                    gap: rem(5);
+                    cursor: pointer;
+
+                    span {
+                        font-size: rem(12);
+                        text-transform: capitalize;
+                        color: themed('textColorSoft');
+                    }
+                }
+            }
+        }
+
+    }
+}

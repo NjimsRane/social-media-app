@@ -14,3 +14,4 @@ export { default as img11 } from './images/icons/11.png';
 export { default as img12 } from './images/icons/12.png';
 export { default as img13 } from './images/icons/13.png';
 export { default as man } from './images/man.png';
+export { default as ubuntu } from './images/ubuntu.jpg';

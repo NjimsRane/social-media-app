@@ -18,7 +18,7 @@ export const DarkModeContextProvider = ({ children }) => {
     };
 
     useEffect(() => {
-        // after , changing the theme , it will reset our local storage
+        // after , changing the theme , it will reset our local storage to current mode
         localStorage.setItem('darkMode', darkMode);
     }, [darkMode]);
 

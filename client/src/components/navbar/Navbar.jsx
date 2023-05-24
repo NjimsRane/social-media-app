@@ -16,7 +16,9 @@ const Navbar = () => {
         <div className='navbar'>
             <div className="left">
                 <Link to='/' className='logo'><span>NjimsRane</span></Link>
-                <MdOutlineHome className='icons' />
+                <Link to='/'>
+                    <MdOutlineHome className='icons' />
+                </Link>
                 {darkMode
                     ? <MdOutlineWbSunny className='icons' onClick={toggle} />
                     : <MdOutlineDarkMode className='icons' onClick={toggle} />

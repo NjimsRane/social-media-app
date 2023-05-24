@@ -5,7 +5,7 @@
     @include themify($themes) {
         flex: 3;
         position: sticky;
-        // 50pixels navbar height and 10/2 px padding(top and bottom each) block 
+        // 50pixels navbar height  
         top: rem(50);
         height: calc(100vh - rem(50));
         overflow: scroll;

@@ -13,6 +13,7 @@
         position: sticky;
         top: 0;
         left: 0;
+        z-index: 999999;
 
         .left {
             @include flexBox4;
@@ -22,6 +23,10 @@
                 color: themed('logo');
                 font-weight: 700;
                 font-size: rem(20)
+            }
+
+            .icons {
+                color: themed('textColor');
             }
 
             .search {
