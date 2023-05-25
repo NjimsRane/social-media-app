@@ -16,7 +16,7 @@ const Posts = () => {
             postTime: '1 hour ago'
         },
         {
-            id: 1,
+            id: 2,
             name: 'njims rane',
             userId: 2,
             profilePic: lady2,

@@ -1,9 +1,15 @@
 import { MdMoreHoriz, MdOutlineShare, MdOutlineMessage } from 'react-icons/md';
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
-import './post.scss';
 import { Link } from 'react-router-dom';
+import { Comments } from '../../components';
+import './post.scss';
+import { useState } from 'react';
 
 const Post = ({ post }) => {
+    // open and close the comment section
+    const [commentOpen, setCommentOpen] = useState('false');
+
+
     // TEMPORARY LIKE
     const liked = true;
     return (
@@ -34,7 +40,7 @@ const Post = ({ post }) => {
                         }
                         <span>likes</span>
                     </p>
-                    <p className='items'>
+                    <p className='items' onClick={() => setCommentOpen(!commentOpen)} >
                         <MdOutlineMessage className='icons' />
                         <span>comments</span>
                     </p>
@@ -43,6 +49,7 @@ const Post = ({ post }) => {
                         <span>share</span>
                     </p>
                 </div>
+                {commentOpen && <Comments />}
             </div>
         </div>
     );

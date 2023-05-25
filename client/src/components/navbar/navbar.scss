@@ -14,6 +14,9 @@
         top: 0;
         left: 0;
         z-index: 999999;
+       
+
+       
 
         .left {
             @include flexBox4;
@@ -40,6 +43,14 @@
                     width: rem(500);
                     background-color: transparent;
                     color: themed('textColor');
+                    @include breakpoint-down(small){
+                        display:none;
+                    }
+
+                    
+                    @include breakpoint-down(medium){
+                        width: rem(300);
+                    }
                 }
             }
         }
@@ -47,10 +58,17 @@
         .right {
             @include flexBox4;
             gap: rem(10);
+            @include breakpoint-down(small){
+                display:none;
+            }
 
             .user {
                 @include flexBox4;
                 gap: rem(5);
+
+                @include breakpoint-down(medium){
+                    display:none;
+                }
 
                 img {
                     width: rem(30);

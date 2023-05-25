@@ -9,7 +9,7 @@
         border-radius: rem(10);
         background-color: themed('bg');
         color: themed('textColor');
-        margin-top: rem(15);
+        margin-top: rem(10);
 
         .container {
             padding: rem(10);
@@ -48,11 +48,9 @@
             }
 
             .content {
-                margin-block: rem(10);
-
                 .desc {
                     font-size: rem(14);
-                    line-height: 1.5;
+                    line-height: 1.3;
                 }
 
                 img {
@@ -60,12 +58,16 @@
                     max-height: rem(350);
                     object-fit: cover;
                     margin-top: rem(10);
+
+                    @include breakpoint-down(small){
+                        max-height: rem(250);
+                    }
                 }
             }
 
             .info {
                 @include flexBox4;
-                gap: rem(20);
+                gap: rem(10);
 
                 .items {
                     @include flexBox4;

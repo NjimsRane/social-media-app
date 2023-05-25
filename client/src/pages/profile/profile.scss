@@ -1,0 +1,122 @@
+@use '../../sass//util' as *;
+@import '../../style.scss';
+
+
+.profile{
+    @include themify($themes) {
+        background-color:themed('bgSoft');
+
+        .images{
+            width:100%;
+            height:rem(300);
+            position: relative;
+            .cover{
+                width:100%;
+                height:100%;
+                object-fit:cover;
+            }
+            .profilePic{
+                width:rem(100);
+                height:rem(100);
+                border-radius:50%;
+                object-fit:cover;
+                position: absolute;
+                left:0;
+                right: 0;
+                margin:auto;
+                top:rem(250);//cover height - half profilePic 
+            }
+        }
+        .profileContainer{
+            padding: rem(20) rem(50);
+
+            @include breakpoint-down(small){
+                padding:rem(10);
+            }
+            @include breakpoint-down(medium){
+                padding:rem(20);
+            }
+            .uInfo{
+                height:rem(180);
+                -webkit-box-shadow: 0px 0px 25px -10px rgba(0, 0, 0, 0.38);
+                -moz-box-shadow: 0px 0px 25px -10px rgba(0, 0, 0, 0.38);
+                box-shadow: 0px 0px 25px -10px rgba(0, 0, 0, 0.38);
+                border-radius:rem(10);
+                background-color:themed('bg');
+                color:themed('textColor');
+                padding:rem(25);
+                margin-bottom:rem(10);
+                @include flexBox3;
+
+
+                @include breakpoint-down(small){
+                    flex-direction:column;
+                    height:30vh;
+                    padding:rem(15);
+                    margin-top:rem(50);
+                }
+                .left{
+                    flex:1;
+                    display:flex;
+                    gap:rem(10);
+
+                    @include breakpoint-down(medium){
+                        flex-wrap:wrap;
+                    }
+
+                    a{
+                        color:themed('textColorSoft');
+                        font-size:rem(15);
+                    }
+                }
+                .center{
+                    flex:1;
+                    @include flexBox2;
+                    align-items:center;
+                   
+                    gap:rem(15);
+                    .userName{
+                        font-size:rem(25);
+                        font-weight: bold;
+                        text-transform: capitalize;
+                        
+                    }
+                    .items{
+                        width:100%;
+                        @include flexBox4;
+                        justify-content:space-around;
+                        gap:rem(10);
+                        .item{
+                            @include flexBox4;
+                            gap:rem(5);
+                            span{
+                                font-size:rem(12);
+                                text-transform: capitalize;
+                                color:themed('textColorSoft');
+                            }
+                        }
+                    }
+                    button{
+                        background-color:var(--blue-facebook);
+                        padding:rem(5);
+                        color:var(--white-color);
+                        border-radius:rem(3);
+                        width:rem(100);
+                        
+                    }
+                }
+                .right{
+                    flex:1;
+                    @include flexBox4;
+                    justify-content:flex-end;
+                    gap:rem(10);
+
+                    .icons{
+                        color:themed('textColorSoft');
+                    }
+
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,68 @@
+@use '../../sass//util' as *;
+@import '../../style.scss';
+
+.comments{
+    @include themify($themes) {
+        img{
+            width:rem(25);
+            height:rem(25);
+            border-radius:50%;
+            object-fit:cover;
+        }
+
+        .write{
+            @include flexBox3;
+            gap:rem(10);
+            margin-block:rem(20);
+
+            input{
+                flex:5;
+                padding:rem(7) rem(5);
+                background-color:transparent;
+                color:themed('textColor');
+                border:1px solid themed('border');
+                border-radius:rem(3);
+            }
+            button{
+                
+                padding:rem(5);
+                text-transform: capitalize;
+                border-radius:rem(3);
+                letter-spacing:rem(1);
+                background-color:var(--blue-facebook);
+                color:var(--white-color);
+            }
+        }
+        .comment{
+           display:flex;
+           justify-content:space-between;
+            margin-block:rem(15);
+            gap:rem(15);
+           
+            .info{
+                flex:6;
+                @include flexBox2;
+                align-items:flex-start;
+                
+                span{
+                    text-transform: capitalize;
+                    font-size:rem(12);
+                    font-weight: 600;
+                    color:themed('textColor');
+                }
+                .desc{
+                    font-size:rem(13);
+                    color:themed('textColorSoft');
+                    margin-top:rem(-8);
+                    letter-spacing:rem(1);
+                }
+            }
+            .commentTime{
+                flex:1;
+                font-size:rem(12);
+                color:gray;
+                align-self:center ;
+            }
+        }
+    }
+}

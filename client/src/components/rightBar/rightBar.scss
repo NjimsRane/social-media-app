@@ -7,7 +7,7 @@
         position: sticky;
         // 50pixels navbar height  
         top: rem(50);
-        height: calc(100vh - rem(50));
+        min-height: calc(100vh - rem(50));
         overflow: scroll;
 
         background-color: themed('bgSoft');
@@ -16,9 +16,16 @@
         &::-webkit-scrollbar {
             display: none;
         }
+        @include breakpoint-down(small){
+            display:none;
+        }
+
+        @include breakpoint-down(medium){
+            display:none;
+        }
 
         .container {
-            padding: rem(10);
+            // padding: rem(5);
             @include flexBox2;
             gap: rem(10);
 
@@ -83,7 +90,7 @@
 
                     & div {
                         @include flexBox3;
-                        gap: rem(5);
+                        gap: rem(4);
                     }
 
                     .comment {
