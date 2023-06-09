@@ -1,4 +1,6 @@
+import { useContext } from 'react';
 import { lady1, lady2, man } from '../../assets';
+import { UserContext } from '../../context/UserContext';
 import './stories.scss';
 
 const Stories = () => {
@@ -25,11 +27,12 @@ const Stories = () => {
             img: lady1
         },
     ];
+    const { currentUser } = useContext(UserContext);
     return (
         <div className='stories'>
             <div className="story">
-                <img src={lady1} alt="story" />
-                <span>Njims Rane</span>
+                <img src={currentUser.profilPic} alt="current user picture" />
+                <span>{currentUser.name}</span>
                 <button className='btn'>
                     +
                 </button>

@@ -1,17 +1,22 @@
-import { lady1, img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12, img13 } from '../../assets';
+import { useContext } from 'react';
+import { UserContext } from '../../context/UserContext';
+import { img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12, img13 } from '../../assets';
 
 import LeftIcons from './LeftIcons';
 import './leftBar.scss';
 
 
+
 const LeftBar = () => {
+
+    const { currentUser } = useContext(UserContext);
     return (
         <div className='leftBar'>
             <div className="container">
                 <div className="menu">
                     <div className="user">
-                        <img src={lady1} alt="user profile" />
-                        <span className='userSpan'>Njims Rane</span>
+                        <img src={currentUser.profilPic} alt="current user profile" />
+                        <span className='userSpan'>{currentUser.name}</span>
                     </div>
                     <div className="items">
                         <LeftIcons img={img1} desc='friends' />

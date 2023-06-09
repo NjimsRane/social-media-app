@@ -19,6 +19,7 @@ const FormInput = (props) => {
                     onChange={onChange}
                     // onBlur event will handle error message to display only there is an error with the current input
                     onBlur={handleFocus}
+                    id={id}
 
                     onFocus={() =>
                         inputProps.name === 'confirmPassword' && setFocused(true)}

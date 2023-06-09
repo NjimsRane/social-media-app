@@ -7,13 +7,19 @@
     height: rem(150);
     gap: rem(10);
     margin-bottom: rem(10);
-    @include breakpoint-down(small){
-        height:rem(50);
-        justify-content:space-between;
+
+
+
+    @include breakpoint-down(medium) {
+        height: rem(100);
+        gap: rem(5);
+
     }
-    @include breakpoint-down(medium){
-       height:rem(100);
-       gap:rem(5);
+
+    @include breakpoint-down(small) {
+        height: rem(50);
+        justify-content: space-between;
+        margin-bottom: unset;
     }
 
     .story {
@@ -22,11 +28,11 @@
         overflow: hidden;
         position: relative;
 
-        @include breakpoint-down(small){
-            flex:none;
-            height:rem(50);
-            width:rem(50);
-            border-radius:50%;
+        @include breakpoint-down(small) {
+            flex: none;
+            height: rem(50);
+            width: rem(50);
+            border-radius: 50%;
         }
 
         img {
@@ -44,10 +50,10 @@
             color: var(--white-color);
             font-weight: 600;
 
-            @include breakpoint-down(small){
-                display:none;
+            @include breakpoint-down(small) {
+                display: none;
             }
-              
+
         }
 
         .btn {
@@ -63,9 +69,9 @@
             font-size: rem(15);
             font-weight: bold;
 
-            @include breakpoint-down(small){
-                inset:0;
-                margin:auto;
+            @include breakpoint-down(small) {
+                inset: 0;
+                margin: auto;
             }
 
         }

@@ -59,7 +59,7 @@
                     object-fit: cover;
                     margin-top: rem(10);
 
-                    @include breakpoint-down(small){
+                    @include breakpoint-down(small) {
                         max-height: rem(250);
                     }
                 }

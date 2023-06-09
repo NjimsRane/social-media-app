@@ -1,9 +1,11 @@
 import { FormInput } from '../../components';
 import { Link } from 'react-router-dom';
 import '../../components/forms/forms.scss';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { UserContext } from '../../context/UserContext';
 
 const Login = () => {
+    const { login } = useContext(UserContext);
 
     const [values, setValues] = useState({
         username: '',
@@ -37,6 +39,10 @@ const Login = () => {
         setValues({ ...values, [e.target.name]: e.target.value });
     };
 
+    const handleLogin = () => {
+        login();
+    };
+
 
     return (
         <div className='forms login'>
@@ -62,7 +68,7 @@ const Login = () => {
 
                         ))}
 
-                        <button>login</button>
+                        <button onClick={handleLogin}>login</button>
                     </form>
                 </div>
             </div>

@@ -1,16 +1,13 @@
 import { createContext, useEffect, useState } from "react";
 
+const DarkModeContext = createContext();
 
-// let create a context and to use the context , we need a provider
-export const DarkModeContext = createContext();
 
-// context provider to be able to use to use the context , and the context provider , will use it to wrapp our all App
-export const DarkModeContextProvider = ({ children }) => {
+const DarkModeContextProvider = ({ children }) => {
     const [darkMode, setDarkMode] = useState(
-        // for it to returna bool , we have to parse it 
+        // for it to return a bool , we have to parse it 
         JSON.parse(localStorage.getItem('darkMode')) || false
     );
-
 
     // to be able to change the theme
     const toggle = () => {
@@ -28,3 +25,5 @@ export const DarkModeContextProvider = ({ children }) => {
         </DarkModeContext.Provider>
     );
 };
+
+export { DarkModeContext, DarkModeContextProvider };

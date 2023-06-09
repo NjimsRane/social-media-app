@@ -10,6 +10,7 @@ import { LeftBar, Navbar, RightBar } from './components';
 import './style.scss';
 import { useContext } from 'react';
 import { DarkModeContext } from './context/DarkModeContext';
+import { UserContext } from './context/UserContext';
 
 
 
@@ -22,7 +23,7 @@ const App = () => {
 
   // fake fonction for login waiting for backend server
   // false because , the user had not logged in yet
-  const currentUser = true;
+  const { currentUser } = useContext(UserContext);
 
   const Layout = () => {
     return (

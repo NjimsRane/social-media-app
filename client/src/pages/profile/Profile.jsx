@@ -5,13 +5,16 @@ import { Posts } from '../../components';
 import { lady1, ubuntu } from '../../assets';
 
 import './profile.scss';
+import { useContext } from 'react';
+import { UserContext } from '../../context/UserContext';
 
 const Profile = () => {
+    const { currentUser } = useContext(UserContext);
     return (
         <div className='profile'>
             <div className="images">
                 <img src={ubuntu} alt="cover picture" className='cover' />
-                <img src={lady1} alt="user profile picture" className='profilePic' />
+                <img src={currentUser.profilPic} alt="user profile picture" className='profilePic' />
             </div>
             <div className="profileContainer">
                 <div className="uInfo">
@@ -33,7 +36,7 @@ const Profile = () => {
                         </a>
                     </div>
                     <div className="center">
-                        <span className='userName'>njims rane</span>
+                        <span className='userName'>{currentUser.name}</span>
                         <div className="items">
                             <div className="item">
                                 <MdOutlinePlace className='icons' />

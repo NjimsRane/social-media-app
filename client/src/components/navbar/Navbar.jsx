@@ -1,16 +1,18 @@
 import { Link } from 'react-router-dom';
 import { MdOutlineHome, MdOutlineDarkMode, MdOutlineEmail, MdOutlineSearch, MdOutlineNotifications, MdOutlineApps, MdOutlineWbSunny } from 'react-icons/md';
 import { AiOutlineUser } from 'react-icons/ai';
-import { lady1 } from '../../assets';
+
 
 import { useContext } from 'react';
 import { DarkModeContext } from '../../context/DarkModeContext';
+import { UserContext } from '../../context/UserContext';
 
 import './navbar.scss';
 
 const Navbar = () => {
 
     const { toggle, darkMode } = useContext(DarkModeContext);
+    const { currentUser } = useContext(UserContext);
 
     return (
         <div className='navbar'>
@@ -26,7 +28,7 @@ const Navbar = () => {
                 <MdOutlineApps className='icons' />
                 <div className="search">
                     <MdOutlineSearch className='icons' />
-                    <input type="text" placeholder='Search...' />
+                    <input type="text" name='search_bar' placeholder='Search...' />
                 </div>
             </div>
             <div className="right">
@@ -34,8 +36,8 @@ const Navbar = () => {
                 <MdOutlineEmail className='icons' />
                 <MdOutlineNotifications className='icons' />
                 <div className="user">
-                    <img src={lady1} alt="user profile" />
-                    <span>Njims Rane</span>
+                    <img src={currentUser.profilPic} alt=" current user profile" />
+                    <span>{currentUser.name}</span>
                 </div>
             </div>
         </div>

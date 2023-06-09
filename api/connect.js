@@ -1,8 +1,15 @@
 import mysql from 'mysql2';
 
+
 export const db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: 'JeDoisLeFaire@1970'
+    password: "JeDoisLeFaire@1970",
+    database: "socialDB"
 });
+
+
+
+
+
 
