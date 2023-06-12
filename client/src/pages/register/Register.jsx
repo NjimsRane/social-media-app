@@ -2,6 +2,7 @@ import { FormInput } from '../../components';
 import { Link } from 'react-router-dom';
 import '../../components/forms/forms.scss';
 import { useState } from 'react';
+import axios from 'axios';
 
 const Register = () => {
     const [values, setValues] = useState({
@@ -10,6 +11,10 @@ const Register = () => {
         password: '',
         confirmPassword: ''
     });
+
+    const [err, setErr] = useState(null);
+
+
 
 
     const inputs = [
@@ -58,6 +63,16 @@ const Register = () => {
     const handleChange = (e) => {
         setValues({ ...values, [e.target.name]: e.target.value });
     };
+    const handleClick = async (e) => {
+        e.preventDefault();
+        try {
+            await axios.post("http://localhost:8080/api/auths/register", values);
+        } catch (err) {
+            setErr(err.response.data);
+        }
+
+    };
+
 
     return (
         <div className='forms register'>
@@ -81,7 +96,8 @@ const Register = () => {
                                 onChange={handleChange}
                             />
                         ))}
-                        <button>register</button>
+                        {err && err}
+                        <button onClick={handleClick}>register</button>
                     </form>
                 </div>
             </div>

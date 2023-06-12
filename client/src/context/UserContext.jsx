@@ -1,5 +1,5 @@
 import { useState, createContext, useEffect } from 'react';
-import { lady1 } from '../assets';
+import axios from 'axios';
 
 
 
@@ -7,15 +7,15 @@ const UserContext = createContext();
 
 const UserProvider = ({ children }) => {
     const [currentUser, setCurrentUser] = useState(
+        // localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : null
         JSON.parse(localStorage.getItem('user')) || null
     );
 
-    const login = () => {
-        setCurrentUser({
-            id: 1,
-            name: 'Njims Rane',
-            profilPic: lady1
+    const login = async (values) => {
+        const res = await axios.post("http://localhost:8080/api/auths/login", values, {
+            withCredentials: true,
         });
+        setCurrentUser(res.data);
     };
 
     useEffect(() => {
@@ -24,7 +24,9 @@ const UserProvider = ({ children }) => {
 
 
     return (
-        <UserContext.Provider value={{ login, currentUser }}>{children}</UserContext.Provider>
+        <UserContext.Provider value={{ login, currentUser }}>
+            {children}
+        </UserContext.Provider>
     );
 };
 

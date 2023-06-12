@@ -20,9 +20,9 @@ const register = (req, res) => {
         const hashedPassword = bcryptjs.hashSync(req.body.password, salt);
 
 
-        const q = "INSERT INTO users('username','email','password','name') VALUES(?)";
+        const q = "INSERT INTO users(username,email,password) VALUES(?)";
 
-        const values = [res.body.username, res.body.email, hashedPassword, res.body.name];
+        const values = [req.body.username, req.body.email, hashedPassword];
 
         db.query(q, [values], (err, data) => {
             if (err) return res.status(500).json(err);
@@ -43,7 +43,7 @@ const login = (req, res) => {
         if (data.length === 0) return res.status(404).json('User not found!');
 
 
-        const checkPassword = bcryptjs.compareSync(res.body.password, data[0].password);
+        const checkPassword = bcryptjs.compareSync(req.body.password, data[0].password);
 
         if (!checkPassword) return res.status(400).json("Wrond password or username");
 
@@ -51,13 +51,16 @@ const login = (req, res) => {
         const { password, ...others } = data[0];
 
         res.cookie("accessToken", token, {
-            httpOnly: true
+            httpOnly: true,
         }).status(200).json(others);
     });
 
 };
 const logout = (req, res) => {
-
+    res.clearCookie("accessToken", {
+        secure: true,
+        sameSite: 'none'
+    }).status(200).json('User has been logged out');
 };
 
 

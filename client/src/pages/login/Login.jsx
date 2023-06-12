@@ -1,16 +1,19 @@
 import { FormInput } from '../../components';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import '../../components/forms/forms.scss';
 import { useContext, useState } from 'react';
 import { UserContext } from '../../context/UserContext';
 
+
 const Login = () => {
-    const { login } = useContext(UserContext);
+
 
     const [values, setValues] = useState({
         username: '',
         password: ''
     });
+    const [err, setErr] = useState(null);
+    const navigate = useNavigate();
 
     // an array to set and handle  all the inputs with their attributs
     const inputs = [
@@ -36,11 +39,19 @@ const Login = () => {
 
     const handleChange = (e) => {
         // to handle value change , need to spread the previous value and add the current value typed in the input  to update it with their name
-        setValues({ ...values, [e.target.name]: e.target.value });
+        setValues((prev) => ({ ...prev, [e.target.name]: e.target.value }));
     };
+    // console.log(values);
+    const { login } = useContext(UserContext);
 
-    const handleLogin = () => {
-        login();
+    const handleLogin = async (e) => {
+        e.preventDefault();
+        try {
+            await login(values);
+            navigate('/');
+        } catch (err) {
+            setErr(err.response.data);
+        }
     };
 
 
@@ -67,7 +78,7 @@ const Login = () => {
                             />
 
                         ))}
-
+                        {err && err}
                         <button onClick={handleLogin}>login</button>
                     </form>
                 </div>
