@@ -1,8 +1,7 @@
 import mysql from 'mysql2';
 
-
 export const db = mysql.createConnection({
-    host: 'localhost',
+    host: "localhost",
     user: 'root',
     password: "JeDoisLeFaire@1970",
     database: "socialDB"
@@ -10,9 +9,7 @@ export const db = mysql.createConnection({
 
 
 
-
 db.connect(err => {
     if (err) throw err;
-    console.log('DB Connected');
-})
-
+    console.log("Database connected!");
+});
