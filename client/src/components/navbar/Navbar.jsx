@@ -37,7 +37,7 @@ const Navbar = () => {
                 <MdOutlineNotifications className='icons' />
                 <div className="user">
                     <img src={currentUser.profilPic} alt=" current user profile" />
-                    <span>{currentUser.name}</span>
+                    <span>{currentUser.username}</span>
                 </div>
             </div>
         </div>

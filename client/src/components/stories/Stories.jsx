@@ -32,7 +32,7 @@ const Stories = () => {
         <div className='stories'>
             <div className="story">
                 <img src={currentUser.profilPic} alt="current user picture" />
-                <span>{currentUser.name}</span>
+                <span>{currentUser.username}</span>
                 <button className='btn'>
                     +
                 </button>
@@ -41,7 +41,7 @@ const Stories = () => {
             {stories.map(story => (
                 <div className="story" key={story.id}>
                     <img src={story.img} alt="story" />
-                    <span>{story.name}</span>
+                    <span>{story.username}</span>
                 </div>
             ))}
         </div>

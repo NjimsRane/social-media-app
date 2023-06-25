@@ -3,11 +3,13 @@ import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import { Comments } from '../../components';
 import './post.scss';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { UserContext } from '../../context/UserContext';
 
 const Post = ({ post }) => {
     // open and close the comment section
     const [commentOpen, setCommentOpen] = useState('false');
+    const { currentUser } = useContext(UserContext);
 
 
     // TEMPORARY LIKE
@@ -20,7 +22,7 @@ const Post = ({ post }) => {
                         <img src={post.profilePic} alt='profile' />
                         <div className="details">
                             <Link to={`/profile/${post.userId}`}>
-                                <span className="userName">{post.name}</span>
+                                <span className="userName">{currentUser.username}</span>
                             </Link>
                             <span className="postTime">{post.postTime}</span>
                         </div>

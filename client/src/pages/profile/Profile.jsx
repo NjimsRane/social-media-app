@@ -36,15 +36,15 @@ const Profile = () => {
                         </a>
                     </div>
                     <div className="center">
-                        <span className='userName'>{currentUser.name}</span>
+                        <span className='userName'>{currentUser.username}</span>
                         <div className="items">
                             <div className="item">
                                 <MdOutlinePlace className='icons' />
-                                <span className='place'>cameroon</span>
+                                <span className='place'>{currentUser.city}</span>
                             </div>
                             <div className="item">
                                 <MdOutlineLanguage className='icons' />
-                                <span className='place'>njims.rane</span>
+                                <span className='place'>{currentUser.website}</span>
                             </div>
                         </div>
                         <button>follow</button>

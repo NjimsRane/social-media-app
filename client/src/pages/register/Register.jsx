@@ -1,5 +1,5 @@
 import { FormInput } from '../../components';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import '../../components/forms/forms.scss';
 import { useState } from 'react';
 import axios from 'axios';
@@ -12,9 +12,10 @@ const Register = () => {
         confirmPassword: ''
     });
 
+
     const [err, setErr] = useState(null);
 
-
+    const navigate = useNavigate();
 
 
     const inputs = [
@@ -67,6 +68,7 @@ const Register = () => {
         e.preventDefault();
         try {
             await axios.post("http://localhost:8080/api/auths/register", values);
+            navigate('/login');
         } catch (err) {
             setErr(err.response.data);
         }
